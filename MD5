@@ -1,0 +1,16 @@
+eebe6598e750ed99ede2ff3ef0481fc6 *DESCRIPTION
+0ae52f09981cd413b5e0ed020ba202a5 *NAMESPACE
+51539c43fa66f8de0a7a01c453b9f2b3 *R/HiCblockMiscFun.R
+f09bbb037b7fc1610a8f05a582daa651 *R/HiCblockModel.R
+8f105ae1f2d2097c60eb51319b71f1ba *R/HiCblockProcData.R
+00b1de6c9be5c80021596ce564435d17 *build/partial.rdb
+ad2375b80c814e330d855446a91d7415 *data/dataExample.RData
+a7e8c093cf91f1dd1be22dc67ffb58bf *data/datalist
+9aa4bb39e48d1626ec1fd93f7f770b4e *inst/extdata/BEAF32_macs2_Kc167_dm3.bed
+ede4ddd05b020df2f50f831b1f26dc7c *man/HiCblock-package.Rd
+33d28237a839163264f8291bc7140ade *man/HiCblockModel.Rd
+cd02f61882181d8cc2a3fcd4c5fedf6e *man/HiCblockProcData.Rd
+585b973fe22987e6b37bea8df83f641d *man/annotateHiCBin.Rd
+53ce92e73b8e2a0b126cfcd8a960a346 *man/createHiCDataset.Rd
+1a2aee68758c9ae69ac9f7a252b984c5 *man/dataExample.Rd
+31753e17e5e7134364a3ab198a2614a3 *man/testDistancePowerLawDistrib.Rd
