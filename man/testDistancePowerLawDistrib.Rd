@@ -13,7 +13,7 @@ testDistancePowerLawDistrib(HTCL, distInter)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{HTCL}{
-A HTClist object (HiTC R package).
+A HTClist object (HiTC R package). This is an object to store the Hi-C data.
 }
   \item{distInter}{
 Optional. A vector of two numerical values to set a distance range for Hi-C analysis.

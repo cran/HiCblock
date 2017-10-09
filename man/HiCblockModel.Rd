@@ -8,7 +8,7 @@ The model.
 The main function to compute the generalized linear model.
 }
 \usage{
-HiCblockModel(hrpd, model, facBlock, regressionMode = "NB", includeBias = T, 
+HiCblockModel(hrpd, model, facBlock, regressionMode = "NB", scale = F, includeBias = T, 
 		sampleSize = NULL, distInter = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -23,14 +23,17 @@ A formula object (stats R package). See Section HiCglmi-package, for examples.
 A vector of character describing the genomic features. For instance, facModel="BEAF32".
 }
   \item{regressionMode}{
-If regressionMode=="Poisson", a Poisson regression. 
-If regressionMode=="QP", a quasi Poisson regression. 
-If regressionMode=="NB", a negative binomial regression. 
-If regressionMode=="Poisson", a Poisson lasso regression. 
+If regressionMode="Poisson", a Poisson regression. 
+If regressionMode="QP", a quasi Poisson regression. 
+If regressionMode="NB", a negative binomial regression. 
+If regressionMode="Poisson", a Poisson lasso regression. 
+}
+  \item{scale}{
+If scale=TRUE, blocking variables are standardized. 
 }
   \item{includeBias}{
-If includeBias==True, then GC, mappability and fragment length biases are included in the regression (default mode).
-If includeBias==False, biases are not included in the regression. You can used this option if you are using Hi-C matrix that had been previously corrected for biases (not recommended). 
+If includeBias=True, then GC, mappability and fragment length biases are included in the regression (default mode).
+If includeBias=False, biases are not included in the regression. You can used this option if you are using Hi-C matrix that had been previously corrected for biases (not recommended). 
 }
   \item{sampleSize}{
 Optional. A numerical value for subsampling Hi-C data.

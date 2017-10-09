@@ -7,7 +7,7 @@
 
 
 # Function to compute generalized linear model with interactions.
-HiCblockModel<-function(hrpd,model,facBlock,regressionMode="NB",includeBias=T,sampleSize=NULL,distInter=NULL){
+HiCblockModel<-function(hrpd,model,facBlock,regressionMode="NB",scale=F,includeBias=T,sampleSize=NULL,distInter=NULL){
 
 
 # MODEL VARIABLE COMPUTATION ---------------------------------------------------------------
@@ -53,6 +53,13 @@ rm(hrpd)
 # Remove Left and Right # CHECKED!
 if(includeBias){
 HiC_mat.bias=as(log(HiC_left.Bias*HiC_right.Bias),"dgCMatrix")
+}
+
+# Scaling data (usefull when proteins have very different number of peaks, e.g. from 200 to 60000).
+if(scale){
+ for(i in 2:ncol(HiC_mat.FacBlock)){
+  HiC_mat.FacBlock[,i]=scale(HiC_mat.FacBlock[,i])
+ }
 }
 
 # Distance # CHECKED!

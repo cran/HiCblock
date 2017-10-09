@@ -5,7 +5,7 @@
 Create a dataset for further processing with the R package.
 }
 \description{
-This is an internal function. 
+This is an internal function (should not be used). 
 }
 \usage{
 createHiCDataset(HTCL, distInter = NULL, verbose = F)

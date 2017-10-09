@@ -87,7 +87,7 @@ annotateHiCBin <- function(HiC_bin.GR, GenomicFeature.GR)
 {
  if(!is(HiC_bin.GR, "GenomicRanges")){stop("'HiC_bin.GR' must be a GenomicRanges object")}
  if(!is(GenomicFeature.GR, "GenomicRanges")){stop("'GenomicFeature.GR' must be a GenomicRanges object")}
- if(any(is.na(seqlengths(GenomicFeature.GR)))){stop("'seqlengths(GenomicFeature.GR)' contains NAs")}
+ #if(any(is.na(seqlengths(GenomicFeature.GR)))){stop("'seqlengths(GenomicFeature.GR)' contains NAs")}
 
  if(is.null(GenomicFeature.GR$score)){
   cvg <- coverage(GenomicFeature.GR)

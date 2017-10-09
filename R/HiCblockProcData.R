@@ -7,7 +7,7 @@
 
 # Function to process Hi-C and genomic feature data (such as ChIP-seq peaks). CHECKED 11/06/2016.
 HiCblockProcData<-function(genomicFeatureList.GR,annotNames,HTCList,
-		      distInter,verbose=F,includeBias=T){
+		      distInter,overlapmode="signal",verbose=F,includeBias=T){
 
 
 # CHECK INPUT DATA ------------------------------------------------------------ 
@@ -53,14 +53,23 @@ HiC_left.Bias=NULL
 HiC_right.Bias=NULL
 }
 
-# Count overlapping in-between the two bins
+# Count overlapping in-between the two bins (blocking variables)
 HiC_betw.Fac=NULL
 for(i in 1:length(genomicFeatureList.GR)){
  annot_betwi=NULL
  HiC_betwlen.Fac=NULL
  for(j in 1:length(Chr)){
   HiC_left_right.GRi=GRanges(Chr[j],IRanges(end(HiC_left.GR[seqnames(HiC_left.GR)==Chr[j]])+1*binSize,start(HiC_right.GR[seqnames(HiC_right.GR)==Chr[j]])-1*binSize))
-  annot_betwij=annotateHiCBin(HiC_left_right.GRi,genomicFeatureList.GR[[i]])
+  distij=end(HiC_left_right.GRi)-start(HiC_left_right.GRi)-1
+
+  if(overlapmode=="signal"){
+   GRi=genomicFeatureList.GR[[i]]
+   GRi$score[GRi$score<0]=0
+   annot_betwij=annotateHiCBin(HiC_left_right.GRi,GRi)
+  }else if(overlapmode=="occurrence"){
+   annot_betwij=countOverlaps(HiC_left_right.GRi,genomicFeatureList.GR[[i]])/(distij/1e3)
+  }
+
   annot_betwi=c(annot_betwi,annot_betwij)
   HiC_betwlen.Fac=c(HiC_betwlen.Fac,width(HiC_left_right.GRi))
  }
