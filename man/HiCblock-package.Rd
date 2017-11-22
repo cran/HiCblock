@@ -50,12 +50,12 @@ IBP=c("BEAF32","dCTCF","dTFIIIC","GAF","SuHw")
 HRPD=HiCblockProcData(genomicFeatureList.GR, annotNames, HTCList, distInter,verbose=TRUE)
 
 # Model 1
-modelBlock1=as.formula(paste0("Count~logDist+len+GC+map+BEAF32"))
+modelBlock1=as.formula(paste0("Count~logDist+len+GC+map+I(-BEAF32)"))
 HRM_Block1=HiCblockModel(HRPD,modelBlock1,"BEAF32",regressionMode="NB")
 print(HRM_Block1)
 
 # Output from model 1
-# Blocking effect (beta) of BEAF-32 is -0.21
+# Blocking effect (beta) of BEAF-32 is 0.21
 #Call:
 #glm.nb(formula = model, data = dataGLM, init.theta = 2.956475677, 
 #    link = log)
@@ -71,7 +71,7 @@ print(HRM_Block1)
 #len          0.662864   0.027635  23.987  < 2e-16 ***
 #GC          -0.627353   0.087941  -7.134 9.76e-13 ***
 #map          1.258398   0.054150  23.239  < 2e-16 ***
-#BEAF32      -0.206394   0.007735 -26.683  < 2e-16 ***
+#I(-BEAF32)   0.206394   0.007735  26.683  < 2e-16 ***
 #---
 #Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -92,8 +92,9 @@ print(HRM_Block1)
 
 
 # Model 2
-# Blocking effect (beta) of BEAF-32 is -13.82
-modelBlock2=as.formula(paste0("Count~logDist+len+GC+map+",paste(IBP,collapse='+')))
+# Blocking effect (beta) of BEAF-32 is 0.18
+vars2=paste(paste0("I(-",IBP,")"),collapse='+')
+modelBlock2=as.formula(paste0("Count~logDist+len+GC+map+",vars2))
 HRM_Block2=HiCblockModel(HRPD,modelBlock2,IBP,regressionMode="NB")
 print(HRM_Block2)
 
@@ -113,11 +114,11 @@ print(HRM_Block2)
 #len          0.685146   0.027209  25.181  < 2e-16 ***
 #GC          -0.560153   0.086482  -6.477 9.35e-11 ***
 #map          1.310488   0.053692  24.407  < 2e-16 ***
-#BEAF32      -0.176687   0.008283 -21.332  < 2e-16 ***
-#dCTCF       -0.028798   0.013665  -2.107  0.03508 *  
-#dTFIIIC     -0.621412   0.077602  -8.008 1.17e-15 ***
-#GAF         -0.047998   0.007878  -6.092 1.11e-09 ***
-#SuHw        -0.072596   0.026326  -2.758  0.00582 ** 
+#I(-BEAF32)   0.176687   0.008283  21.332  < 2e-16 ***
+#I(-dCTCF)    0.028798   0.013665   2.107  0.03508 *  
+#I(-dTFIIIC)  0.621412   0.077602   8.008 1.17e-15 ***
+#I(-GAF)      0.047998   0.007878   6.092 1.11e-09 ***
+#I(-SuHw)     0.072596   0.026326   2.758  0.00582 ** 
 #---
 #Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -134,6 +135,25 @@ print(HRM_Block2)
 #          Std. Err.:  0.0738 
 
 # 2 x log-likelihood:  -45889.1960 
+
+
+
+# Model 3
+# Blocking effect (beta) of BEAF-32 is 0.22
+HRM_Block3=HiCblockModel(HRPD,NULL,IBP,regressionMode="PoissonLasso")
+print(HRM_Block3)
+
+# Output from model 3
+#        Variable Coefficient
+#logDist  logDist    -1.04649
+#len          len     0.56508
+#GC            GC    -0.43621
+#map          map     0.95623
+#BEAF32    BEAF32     0.22077
+#dCTCF      dCTCF     0.01680
+#dTFIIIC  dTFIIIC     0.73750
+#GAF          GAF     0.03878
+#SuHw        SuHw     0.12617
 
 
 

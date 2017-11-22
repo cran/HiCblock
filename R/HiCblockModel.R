@@ -111,6 +111,7 @@ HiC_mat.All=HiC_mat.All[!is.na(HiC_mat.All[,5]),]
 HiC_mat.All=HiC_mat.All[HiC_mat.All[,3]!=-Inf,]
 HiC_mat.All=HiC_mat.All[HiC_mat.All[,"Blen"]>100,]
 HiC_mat.All=HiC_mat.All[,colnames(HiC_mat.All)!="Blen"]
+HiC_mat.All[,6:ncol(HiC_mat.All)]=-HiC_mat.All[,6:ncol(HiC_mat.All)] # -beta
 
 CVLasso=cv.glmnet(HiC_mat.All[,-1],HiC_mat.All[,1],family="poisson",parallel=F)
 lambda=CVLasso$lambda.min # CVLasso$lambda.min or CVLasso$lambda.1se

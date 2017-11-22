@@ -17,7 +17,7 @@ HiCblockModel(hrpd, model, facBlock, regressionMode = "NB", scale = F, includeBi
 Preprocessed data. It includes Hi-C interaction pairs that have been annotated with genomic feature information. To compute this object, you should use the function HiCglmiProcData.
 }
   \item{model}{
-A formula object (stats R package). See Section HiCglmi-package, for examples.
+A formula object (stats R package). See Section HiCglmi-package, for examples. If regressionMode="PoissonLasso", then the variable model should be set to NULL (i.e. model=NULL).
 }
   \item{facBlock}{
 A vector of character describing the genomic features. For instance, facModel="BEAF32".
@@ -26,7 +26,7 @@ A vector of character describing the genomic features. For instance, facModel="B
 If regressionMode="Poisson", a Poisson regression. 
 If regressionMode="QP", a quasi Poisson regression. 
 If regressionMode="NB", a negative binomial regression. 
-If regressionMode="Poisson", a Poisson lasso regression. 
+If regressionMode="PoissonLasso", a Poisson lasso regression. 
 }
   \item{scale}{
 If scale=TRUE, blocking variables are standardized. 
