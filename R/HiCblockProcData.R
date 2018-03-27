@@ -74,9 +74,9 @@ for(i in 1:length(genomicFeatureList.GR)){
   HiC_betwlen.Fac=c(HiC_betwlen.Fac,width(HiC_left_right.GRi))
  }
  if(is.null(HiC_betw.Fac)){
-  HiC_betw.Fac=cBind(HiC_betwlen.Fac,annot_betwi)
+  HiC_betw.Fac=cbind(HiC_betwlen.Fac,annot_betwi)
  }else{
-  HiC_betw.Fac=cBind(HiC_betw.Fac,annot_betwi)
+  HiC_betw.Fac=cbind(HiC_betw.Fac,annot_betwi)
  }
  rm(annot_betwi)
 

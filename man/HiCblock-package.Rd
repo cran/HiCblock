@@ -33,7 +33,7 @@ Raphael Mourad
 Maintainer: Raphael Mourad, raphael.mourad@ibcg.biotoul.fr
 }
 \references{
-TO ADD when published.
+Raphael Mourad and Olivier Cuvier. TAD-free analysis of architectural proteins and insulators.  Nucleic Acids Research, Volume 46, Issue 5, 16 March 2018, Pages e27.
 }
 
 \examples{

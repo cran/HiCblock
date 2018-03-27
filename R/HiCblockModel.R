@@ -71,13 +71,13 @@ HiC_logDist=log(dist)
 HiC_count=HiC_data[,2]
 
 # All data: Matrix format # CHECKED!
-HiC_vecBind=as(cbind(HiC_count,HiC_logDist),"dgCMatrix")
+HiC_vecbind=as(cbind(HiC_count,HiC_logDist),"dgCMatrix")
 if(includeBias){
- HiC_mat.All=cBind(HiC_vecBind,HiC_mat.bias,HiC_mat.FacBlock)
- rm(HiC_vecBind,HiC_mat.bias,HiC_mat.FacBlock)
+ HiC_mat.All=cbind(HiC_vecbind,HiC_mat.bias,HiC_mat.FacBlock)
+ rm(HiC_vecbind,HiC_mat.bias,HiC_mat.FacBlock)
 }else{
- HiC_mat.All=cBind(HiC_vecBind,HiC_mat.FacBlock)
- rm(HiC_vecBind,HiC_mat.FacBlock)
+ HiC_mat.All=cbind(HiC_vecbind,HiC_mat.FacBlock)
+ rm(HiC_vecbind,HiC_mat.FacBlock)
 }
 colnames(HiC_mat.All)[1:2]=c("Count","logDist")
 
