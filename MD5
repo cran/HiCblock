@@ -1,9 +1,9 @@
-9e5b7f19ff3b51a6cac94ce9ca994d1e *DESCRIPTION
-0ae52f09981cd413b5e0ed020ba202a5 *NAMESPACE
+c06a91cc4f1a8ae3ebf1942fd2677cb2 *DESCRIPTION
+7e00861c45d012a7b85044b88b708d3c *NAMESPACE
 3a12b0fcecd480930cc393b9d6c3f5dd *R/HiCblockMiscFun.R
 0dd4adfd66dfc6dc09c88eb7b933e01a *R/HiCblockModel.R
 5b827148eda32634822910f064cf9cc3 *R/HiCblockProcData.R
-bf1be0da70f03c0fb5fd870d2d74e480 *build/partial.rdb
+71f548e74bf45dfb846e67abd00da978 *build/partial.rdb
 4bdd02c33f8163579fbad03609146fd9 *data/dataExample.RData
 a7e8c093cf91f1dd1be22dc67ffb58bf *data/datalist
 9aa4bb39e48d1626ec1fd93f7f770b4e *inst/extdata/BEAF32_macs2_Kc167_dm3.bed
