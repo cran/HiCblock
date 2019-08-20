@@ -93,10 +93,12 @@ print(HRM_Block1)
 
 # Model 2
 # Blocking effect (beta) of BEAF-32 is 0.18
+if(FALSE){
 vars2=paste(paste0("I(-",IBP,")"),collapse='+')
 modelBlock2=as.formula(paste0("Count~logDist+len+GC+map+",vars2))
 HRM_Block2=HiCblockModel(HRPD,modelBlock2,IBP,regressionMode="NB")
 print(HRM_Block2)
+}
 
 # Output from model 2
 #Call:
@@ -140,8 +142,10 @@ print(HRM_Block2)
 
 # Model 3
 # Blocking effect (beta) of BEAF-32 is 0.22
+if(FALSE){
 HRM_Block3=HiCblockModel(HRPD,NULL,IBP,regressionMode="PoissonLasso")
 print(HRM_Block3)
+}
 
 # Output from model 3
 #        Variable Coefficient
